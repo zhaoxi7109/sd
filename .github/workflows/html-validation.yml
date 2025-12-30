@@ -14,12 +14,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
-    - name: HTML5 Validator
-      uses: Cyb3r-Jak3/html5validator-action@v2.0.2
-      with:
-        files: 'docs/index.html'
-        validate_html: true
-        css: false
-        js: false
-        verbose: true
-        warn_level: 1
+    - name: Install vnu-jar
+      run: |
+        wget https://github.com/validator/vnu-jar/releases/download/22.9.29/vnu-jar-22.9.29.zip
+        unzip vnu-jar-22.9.29.zip
+        rm -rf vnu.jar META-INF
+        mv vnu-jar-22.9.29 vnu-jar
+
+    - name: Validate HTML
+      run: |
+        java -jar vnu-jar/vnu.jar --skip-non-html --also-check-css --errors-only docs/index.html

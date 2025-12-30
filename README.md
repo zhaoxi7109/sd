@@ -29,7 +29,7 @@
 - 使用最新的GitHub Pages Actions
 
 ### 2. HTML验证工作流 ([.github/workflows/html-validation.yml](.github/workflows/html-validation.yml))
-- 验证HTML文件的语法正确性
+- 使用W3C HTML验证器验证HTML文件的语法正确性
 - 确保符合W3C标准
 - 在代码推送和PR时运行
 
