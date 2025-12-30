@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>我的简单网页</title>
+    <title>我的测试网页 - 自动部署</title>
     <style>
       * {
         margin: 0;
@@ -85,6 +85,12 @@
         color: #666;
       }
 
+      .test-highlight {
+        background-color: #ffeb3b;
+        padding: 3px 5px;
+        border-radius: 3px;
+      }
+
       @media (max-width: 600px) {
         .container {
           padding: 10px;
@@ -99,8 +105,8 @@
   <body>
     <div class="container">
       <header>
-        <h1>欢迎来到我的网页</h1>
-        <p>一个简单而优雅的网页示例</p>
+        <h1>欢迎来到我的测试网页</h1>
+        <p>用于测试GitHub Actions自动部署功能</p>
       </header>
 
       <div class="content">
@@ -120,8 +126,8 @@
             <p>使用现代化的CSS样式，包括渐变背景和阴影效果。</p>
           </div>
           <div class="feature-card">
-            <h3>易于修改</h3>
-            <p>代码结构清晰，易于根据需要进行修改和扩展。</p>
+            <h3>自动部署</h3>
+            <p>每次更新代码都会触发 <span class="test-highlight">GitHub Actions</span> 自动部署。</p>
           </div>
         </div>
 
@@ -133,10 +139,15 @@
         <p>
           您可以根据需要修改内容、颜色、字体等元素，以创建符合您需求的网页。
         </p>
+        
+        <h2>部署测试</h2>
+        <p>
+          此页面已更新，以测试自动部署功能。如果能看到此内容，表示 <strong>GitHub Actions</strong> 部署成功！
+        </p>
       </div>
 
       <footer>
-        <p>&copy; 2025 我的简单网页. 版权所有.</p>
+        <p>&copy; 2025 我的测试网页. 版权所有.</p>
       </footer>
     </div>
   </body>
