@@ -1,0 +1,33 @@
+name: Code Quality Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install quality tools
+      run: |
+        npm install -g jshint csslint
+        echo "Tools installed"
+        
+    - name: Run HTML Lint (if HTMLHint is available)
+      run: |
+        if command -v htmlhint &> /dev/null; then
+          npx htmlhint docs/*.html
+        else
+          echo "HTMLHint not available, skipping HTML lint"
+        fi

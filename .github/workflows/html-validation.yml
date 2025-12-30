@@ -1,0 +1,25 @@
+name: HTML Validation
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  html-validation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: HTML5 Validator
+      uses: Cyb3r-Jak3/html5validator-action@v2.0.2
+      with:
+        files: 'docs/index.html'
+        validate_html: true
+        css: false
+        js: false
+        verbose: true
+        warn_level: 1
