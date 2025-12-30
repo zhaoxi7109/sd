@@ -14,9 +14,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Build project
+      run: npm run build
+      
     - name: Validate HTML with xmllint
       run: |
         sudo apt-get update
         sudo apt-get install -y libxml2-utils
-        xmllint --html --noout docs/index.html
+        xmllint --html --noout dist/index.html
       continue-on-error: true

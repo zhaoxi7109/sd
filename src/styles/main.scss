@@ -1,0 +1,344 @@
+// 变量定义
+$primary-color: #667eea;
+$secondary-color: #764ba2;
+$accent-color: #e0c3fc;
+$text-color: #333;
+$bg-color: #f5f7fa;
+$card-bg: rgba(255, 255, 255, 0.95);
+
+@use "sass:color";
+
+// 基础样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: $text-color;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  overflow-x: hidden;
+  
+  &.dark-theme {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    
+    .container {
+      background-color: rgba(30, 30, 40, 0.95);
+    }
+    
+    .feature-card {
+      background: linear-gradient(145deg, #2d2d42, #3a3a52);
+      color: #ddd;
+    }
+  }
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,0.2) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(255,255,255,0.2) 0%, transparent 20%);
+  pointer-events: none;
+  
+  .dark-theme & {
+    background: 
+      radial-gradient(circle at 10% 20%, rgba(255,255,255,0.05) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(255,255,255,0.05) 0%, transparent 20%);
+  }
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $card-bg;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+  margin: -20px -20px 20px -20px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.5%);
+    background-size: 20px 20px;
+    animation: sparkle 20s linear infinite;
+  }
+}
+
+@keyframes sparkle {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+h1 {
+  font-size: 2.8em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.subtitle {
+  font-size: 1.3em;
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
+}
+
+.content {
+  padding: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+h2 {
+  color: $primary-color;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(to right, $primary-color, $secondary-color);
+  }
+  
+  .dark-theme & {
+    color: color.adjust($primary-color, $lightness: 20%);
+    border-bottom: 2px solid #444;
+  }
+}
+
+p {
+  margin-bottom: 15px;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin: 25px 0;
+}
+
+.feature-card {
+  background: linear-gradient(145deg, #f0f0f0, #ffffff);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid $primary-color;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, $primary-color, $secondary-color);
+  }
+
+  h3 {
+    color: $secondary-color;
+    margin-bottom: 12px;
+    font-size: 1.3em;
+  }
+
+  p {
+    color: #666;
+  }
+  
+  .dark-theme & {
+    background: linear-gradient(145deg, #2d2d42, #3a3a52);
+    color: #ddd;
+  }
+}
+
+.test-highlight {
+  background: linear-gradient(120deg, $accent-color 0%, #8ec5fc 100%);
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.deployment-status {
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 20px 0;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba($primary-color, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba($primary-color, 0); }
+  100% { box-shadow: 0 0 0 0 rgba($primary-color, 0); }
+}
+
+.deployment-status h3 {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.deployment-status p {
+  margin-bottom: 0;
+  font-size: 1.1em;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba($primary-color, 0.1);
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0 20px;
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  color: #666;
+  position: relative;
+  z-index: 2;
+  
+  .dark-theme & {
+    border-top: 1px solid #444;
+    color: #aaa;
+  }
+}
+
+.action-button {
+  display: inline-block;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  margin: 15px 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba($primary-color, 0.3);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba($primary-color, 0.4);
+  }
+
+  &.clicked {
+    transform: scale(0.95);
+  }
+  
+  .dark-theme & {
+    background: linear-gradient(135deg, color.adjust($primary-color, $lightness: 10%) 0%, color.adjust($secondary-color, $lightness: 10%) 100%);
+  }
+}
+
+// 动画相关样式
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// 时钟样式
+#clock {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2em;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+    margin-top: 20px;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+  
+  .features {
+    grid-template-columns: 1fr;
+  }
+  
+  .action-button {
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 300px;
+  }
+}

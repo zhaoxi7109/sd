@@ -14,10 +14,22 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Build project
+      run: npm run build
+      
     - name: Link Checker
       uses: lycheeverse/lychee-action@v1.8.0
       with:
-        args: --verbose --no-progress 'docs/**/*.html'
+        args: --verbose --no-progress 'dist/**/*.html'
         fail: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

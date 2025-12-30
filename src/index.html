@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>复杂前端项目 - GitHub Actions部署</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  </head>
+  <body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+      <header>
+        <h1>欢迎来到复杂前端项目</h1>
+        <p class="subtitle">使用Webpack构建，GitHub Actions自动部署</p>
+        <p class="subtitle">当前时间: <span id="clock">--:--:--</span></p>
+      </header>
+
+      <div class="content">
+        <div class="deployment-status">
+          <h3>✅ 部署成功!</h3>
+          <p>GitHub Actions自动部署已成功运行</p>
+        </div>
+
+        <h2 class="animate-on-scroll">关于这个项目</h2>
+        <p class="animate-on-scroll">
+          这是一个使用现代前端技术栈构建的复杂项目示例。它使用Webpack进行模块打包，
+          包含ES6模块、SCSS样式预处理、以及现代化的JavaScript功能。
+        </p>
+
+        <h2 class="animate-on-scroll">项目特点</h2>
+        <div class="features">
+          <div class="feature-card animate-on-scroll">
+            <h3>模块化架构</h3>
+            <p>使用ES6模块系统，代码组织清晰，易于维护和扩展。</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <h3>现代CSS</h3>
+            <p>使用SCSS预处理器，支持变量、嵌套、混合等功能。</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <h3>自动化部署</h3>
+            <p>每次更新代码都会触发 <span class="test-highlight">GitHub Actions</span> 自动构建和部署。</p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <h3>响应式设计</h3>
+            <p>适配各种屏幕尺寸，提供一致的用户体验。</p>
+          </div>
+        </div>
+
+        <h2 class="animate-on-scroll">交互功能</h2>
+        <p class="animate-on-scroll">
+          本项目包含多种交互功能，如动态粒子效果、主题切换、滚动动画等。
+          点击下面的按钮体验不同功能。
+        </p>
+        
+        <div style="text-align: center; margin: 30px 0;" class="animate-on-scroll">
+          <button class="action-button" data-action="toggle-particles">隐藏粒子效果</button>
+          <button class="action-button" data-action="change-theme">切换到暗色主题</button>
+        </div>
+
+        <h2 class="animate-on-scroll">技术说明</h2>
+        <p class="animate-on-scroll">
+          这个项目使用了现代前端开发工具链。Webpack作为模块打包器，
+          将所有资源（JavaScript、CSS、图片等）打包成优化后的静态资源。
+        </p>
+
+        <p class="animate-on-scroll">
+          源代码结构清晰，包含模块化的JavaScript代码、SCSS样式文件，
+          以及可扩展的HTML模板。
+        </p>
+        
+        <h2 class="animate-on-scroll">构建与部署</h2>
+        <p class="animate-on-scroll">
+          使用npm脚本可以轻松进行开发、构建和测试。GitHub Actions工作流
+          会自动处理代码的构建和部署到GitHub Pages的过程。
+        </p>
+      </div>
+
+      <footer>
+        <p>&copy; 2025 复杂前端项目. 版权所有.</p>
+        <p>通过 GitHub Actions 自动构建和部署</p>
+      </footer>
+    </div>
+  </body>
+</html>

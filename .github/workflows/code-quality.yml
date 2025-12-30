@@ -21,13 +21,23 @@ jobs:
         
     - name: Install quality tools
       run: |
-        npm install -g jshint csslint
-        echo "Tools installed"
+        npm install -g eslint
+        echo "ESLint installed"
         
-    - name: Run HTML Lint (if HTMLHint is available)
+    - name: Run ESLint
       run: |
-        if command -v htmlhint &> /dev/null; then
-          npx htmlhint docs/*.html
+        if [ -f .eslintrc.js ]; then
+          npx eslint src/**/*.js
         else
-          echo "HTMLHint not available, skipping HTML lint"
+          echo "ESLint config not found, skipping ESLint check"
         fi
+      continue-on-error: true
+      
+    - name: Run style check
+      run: |
+        if command -v sass &> /dev/null; then
+          sass --style=expanded --check src/styles/
+        else
+          echo "Sass not available, skipping style check"
+        fi
+      continue-on-error: true
